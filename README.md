@@ -1,86 +1,47 @@
 
 
-# Python Package Template
-A easy, reliable, fluid template for python packages complete with docs, testing suites, readme's, github workflows, linting and much much more
+# Lightning Attention 2
+
+This is an implementation of Lightning Attention-2: A Free Lunch for Handling Unlimited Sequence Lengths in Large Language Models 2401.04658 using PyTorch.
 
 
 ## Installation
 
-You can install the package using pip
+I've given instructions for either uv or pip. You can use either of them.
+
+
+
+### uv Installation
+
+Checkout the code and run from source: 
 
 ```bash
-pip install -e .
+git clone https://github.com/evelynmitchell/lightning-attention.git
+cd lightning-attention
+uv run --python 3.12 --with torch --with loguru lighting-attention/src/lightning-attention2/main.py --system
 ```
 
-# Usage
-```python
-print("hello world")
+### pip Installation
 
-```
+Create a virtual environment for python:
 
-
-
-### Code Quality 🧹
-
-
-This project uses poetry, venv and pre-commit hooks.
-
-Once on project set up run:
-```
-python -m venv /path/to/new/virtual/environment
-```
-where /path/to/new/virtual/environment is the path to the new virtual environment you want to create. I suggest /project/.venv as a good idea.
-
-Then activate the virtual environment by running:
-```
+```bash
+python -m venv .venv
 source .venv/bin/activate
 ```
 
-When you are done working in this venv you can deactivate it by running:
-``` 
-source deactivate
+Checkout the code and install from source: 
+
+```bash
+git clone https://github.com/evelynmitchell/lightning-attention.git
+cd lightning-attention
+pip install . --system
 ```
 
-
-We provide two handy commands inside the `Makefile`, namely:
-
-- `make style` to format the code
-- `make check_code_quality` to check code quality (PEP8 basically)
-- `black .`
-- `ruff . --fix`
-
-### Tests 🧪
-
-[`pytests`](https://docs.pytest.org/en/7.1.x/) is used to run our tests.
-
-### Publish on PyPi 🚀
-
-**Important**: Before publishing, edit `__version__` in [src/__init__](/src/__init__.py) to match the wanted new version.
-
-```
-poetry build
-poetry publish
+# Usage
+```bash
+git clone https://github.com/evelynmitchell/lightning-attention.git
+cd lightning-attention
+uv run --python 3.12  lightning-attention/src/lightning-attention2/main.py --system
 ```
 
-### CI/CD 🤖
-
-We use [GitHub actions](https://github.com/features/actions) to automatically run tests and check code quality when a new PR is done on `main`.
-
-On any pull request, we will check the code quality and tests.
-
-When a new release is created, we will try to push the new code to PyPi. We use [`twine`](https://twine.readthedocs.io/en/stable/) to make our life easier. 
-
-The **correct steps** to create a new realease are the following:
-- edit `__version__` in [src/__init__](/src/__init__.py) to match the wanted new version.
-- create a new [`tag`](https://git-scm.com/docs/git-tag) with the release name, e.g. `git tag v0.0.1 && git push origin v0.0.1` or from the GitHub UI.
-- create a new release from GitHub UI
-
-The CI will run when you create the new release.
-
-# Docs
-We use MK docs. This repo comes with the zeta docs. All the docs configurations are already here along with the readthedocs configs.
-
-
-
-# License
-MIT
